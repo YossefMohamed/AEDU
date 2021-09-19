@@ -53,13 +53,18 @@ function MyApp({ Component, pageProps }) {
       <AppContainer>
         <Provider store={store}>
           <Nav />
-          <Component {...pageProps} />
+          <AppParent>
+            <Component {...pageProps} />
+          </AppParent>
           <Footer />
         </Provider>
       </AppContainer>
     </div>
   );
 }
+const AppParent = styled.div`
+  padding: 5rem 0;
+`;
 const AppContainer = styled.div`
   padding: 1rem 0;
   @media (max-width: 900px) {

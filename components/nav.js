@@ -32,6 +32,7 @@ export default function Nav() {
       </div>
     </NavBar>
   );
+  //margin-bottom
 }
 
 const NavBar = styled.div`
@@ -56,7 +57,7 @@ const NavBar = styled.div`
       ul {
         flex-direction: column;
         width: 100%;
-        margin-bottom: 0 !important;
+        margin-bottom: 0px;
 
         li {
           width: 100%;

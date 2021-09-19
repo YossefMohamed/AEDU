@@ -3,6 +3,7 @@ import colors from "../../utils/colors";
 import ImageContainer from "./../../utils/ImageContainer";
 import Link from "next/link";
 import { useState } from "react";
+import Post from "../../components/post";
 
 function ClassId() {
   const [post, setPost] = useState(false);
@@ -64,6 +65,7 @@ function ClassId() {
             </div>
           </div>
         </div>
+        <Post />
       </div>
     </CLassContianerId>
   );
@@ -73,10 +75,12 @@ const CLassContianerId = styled.div`
   .options,
   .select-container {
     transition: 100ms all;
-    transform: ${(props) => (props.post ? "scale(1)" : "scale(0)")};
+    display: ${(props) => (props.post ? "block" : "none")};
   }
   .select-wrapper {
     margin: 1rem 0;
+    padding: 0rem 1rem;
+
     margin: ${(props) => (props.post ? "1rem 0" : "0 0")};
 
     & span {
@@ -90,14 +94,16 @@ const CLassContianerId = styled.div`
   display: flex;
   min-height: 50vh;
   .class-make-post {
+    border: 1px solid rgba(0, 0, 0, 0.2);
     .options {
-      margin: 2rem 0;
-      margin: ${(props) => (props.post ? "2rem 0" : "0 0")};
+      margin: ${(props) => (props.post ? " 1rem 0 0" : "0 0")};
 
       display: flex;
+      align-items: center;
       justify-content: space-between;
       .make-post-options {
-        display: flex;
+        display: ${(props) => (props.post ? "flex" : "none")};
+
         padding: 0rem 2rem;
         & > div {
           margin-right: 2rem;
@@ -113,24 +119,27 @@ const CLassContianerId = styled.div`
           color: ${colors.secondary};
           padding: 1rem 1.5rem;
           border-radius: 5px;
+          display: ${(props) => (props.post ? "block" : "none")};
         }
       }
     }
     padding: 1rem;
-    margin: 2rem 0;
+    margin: 2rem 0 0;
     background-color: white;
     display: flex;
     justify-content: center;
     flex-direction: column;
     .make-post-class {
       width: 100%;
-      height: 15rem;
+      height: ${(props) => (props.post ? "15rem" : "10rem")};
     }
     border-radius: 5px;
     &-text {
       background-color: rgba(0, 0, 0, 0.05);
       width: 100%;
-      height: 100%;
+      resize: none;
+
+      height: ${(props) => (props.post ? "100%" : "100%")};
       padding: 2rem 1rem;
       border: none;
       border-bottom: 5px solid ${colors.main};
@@ -138,7 +147,6 @@ const CLassContianerId = styled.div`
     }
   }
   .class-cat {
-    padding: 5rem 0;
     font-weight: bold;
     width: 15%;
     display: flex;
@@ -163,7 +171,7 @@ const CLassContianerId = styled.div`
     width: 85%;
     min-height: 100vh;
     display: flex;
-    padding: 2rem;
+    padding: 0 0 0 2rem;
     flex-direction: column;
     .class-cover {
       height: 25rem;
