@@ -105,7 +105,7 @@ const SwiperContainer = styled.div`
   .swiper-content {
     padding: 3rem 3rem;
     display: flex;
-    background-color: #ecf4fe;
+    background-color: #e1edfb;
 
     justify-content: space-evenly;
     flex-direction: column;

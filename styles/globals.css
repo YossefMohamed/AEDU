@@ -9,12 +9,13 @@ html {
 }
 body {
   padding: 0 10%;
-  background-color: #ecf4fe;
+  background-color: #e1edfb;
 }
+//
 @media (max-width: 900px) {
   body {
     padding: 0 0;
-    background-color: #ecf4fe;
+    background-color: #e1edfb;
   }
 }
 a {
