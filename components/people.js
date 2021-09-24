@@ -74,7 +74,7 @@ function People() {
   );
 }
 const PeopleContainer = styled.div`
-  width: 85%;
+  width: 80%;
   padding: 0 0 0 2rem;
   .student-container {
     margin-top: 5rem;

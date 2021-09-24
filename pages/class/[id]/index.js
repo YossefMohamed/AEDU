@@ -1,29 +1,50 @@
 import styled from "styled-components";
-import colors from "../../utils/colors";
-import ImageContainer from "./../../utils/ImageContainer";
+import colors from "../../../utils/colors";
+import ImageContainer from "./../../../utils/ImageContainer";
 import Link from "next/link";
 import { useState } from "react";
-import Post from "../../components/post";
-import TimeLine from "../../components/timeLine";
-import Chat from "../../components/chat";
-import People from "../../components/people";
+import Post from "../../../components/post";
+import TimeLine from "../../../components/timeLine";
+import Chat from "../../../components/chat";
+import People from "../../../components/people";
+import ClassWork from "../../../components/classWork";
 
 function ClassId() {
   const [post, setPost] = useState(false);
+  const [cat, setCat] = useState(1);
   return (
-    <CLassContianerId post={post}>
+    <CLassContianerId post={post} cat={cat}>
       <div className="class-cat">
-        <div className="time-line">Time Line</div>
-        <div className="people">People</div>
-        <div className="classwork">ClassWork</div>
+        <div className="time-line" onClick={(e) => setCat(1)}>
+          Time Line
+        </div>
+        <div className="people" onClick={(e) => setCat(2)}>
+          People
+        </div>
+        <div className="classwork" onClick={(e) => setCat(3)}>
+          ClassWork
+        </div>
+        <div className="chat" onClick={(e) => setCat(4)}>
+          Chat
+        </div>
       </div>
-      <People />
+      {cat == 1 ? (
+        <TimeLine setPost={setPost} />
+      ) : cat == 2 ? (
+        <People />
+      ) : cat == 3 ? (
+        <ClassWork />
+      ) : (
+        <Chat />
+      )}
     </CLassContianerId>
   );
 }
 
-// <TimeLine setPost={setPost} />
 const CLassContianerId = styled.div`
+  * {
+    transition: 200ms all ease-in-out;
+  }
   .options,
   .select-container {
     transition: 100ms all;
@@ -100,12 +121,14 @@ const CLassContianerId = styled.div`
   }
   .class-cat {
     font-weight: bold;
-    width: 15%;
+    width: 20%;
     display: flex;
     flex-direction: column;
+    font-size: 1.5rem;
     .time-line,
     .people,
-    .classwork {
+    .classwork,
+    .chat {
       cursor: pointer;
       margin: 1px 0;
       padding: 1.5rem 1rem;
@@ -114,13 +137,20 @@ const CLassContianerId = styled.div`
         color: ${colors.secondary};
       }
     }
-    .time-line {
+    ${(props) =>
+      props.cat == 1
+        ? ".time-line"
+        : props.cat == 2
+        ? ".people"
+        : props.cat == 3
+        ? ".classwork"
+        : ".chat"} {
       background-color: ${colors.main};
       color: ${colors.secondary};
     }
   }
   .class-time-line {
-    width: 85%;
+    width: 80%;
     min-height: 100vh;
     display: flex;
     padding: 0 0 0 2rem;

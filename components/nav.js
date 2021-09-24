@@ -3,30 +3,43 @@ import styled from "styled-components";
 import colors from "../utils/colors";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import ImageContainer from "../utils/ImageContainer";
+
 export default function Nav() {
   const [list, setList] = useState(false);
+  const router = useRouter();
+
   return (
     <NavBar display={list}>
-      <div className="logo">AEDU</div>
+      <div className="logo" onClick={(e) => router.push("/")}>
+        AEDU
+      </div>
       <div className="bars" onClick={(e) => setList(!list)}>
         <i class="fas fa-bars"></i>
       </div>
       <div className="nav-list">
         <ul>
           <li>
-            <Link href="">Home</Link>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href="">Join A Class</Link>
+            <Link href="/class">Classes</Link>
           </li>
           <li>
-            <Link href="">Make A Class</Link>
-          </li>
-          <li>
-            <Link href="">Sign in</Link>
+            <Link href="/login">Sign in</Link>
           </li>
           <li className="signup-li">
-            <Link href="">Sign up</Link>
+            <Link href="/signup">
+              <a>Sign up</a>
+            </Link>
+          </li>
+          <li className="profile-li">
+            <Link href="/myprofile">
+              <a>
+                <img src="/join.png" />
+              </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -36,6 +49,12 @@ export default function Nav() {
 }
 
 const NavBar = styled.div`
+  a:hover {
+    color: black;
+  }
+  a:focus {
+    color: white;
+  }
   position: relative;
   .bars {
     display: none;
@@ -82,6 +101,7 @@ const NavBar = styled.div`
     font-family: Sofia, sans-serif;
     width: fit-content;
     font-size: 2.5rem;
+    cursor: pointer;
     font-weight: bold;
   }
   .nav-list {
@@ -102,9 +122,27 @@ const NavBar = styled.div`
     }
   }
   .signup-li {
-    background-color: ${colors.button};
-    padding: 10px;
-    border-radius: 5px;
+    display: none;
+    a {
+      background-color: ${colors.button};
+      padding: 10px;
+      border-radius: 5px;
+    }
+  }
+  .profile-li {
+    width: 45px;
+    height: 45px;
+    border: 50%;
+    a {
+      width: 100%;
+      height: 100%;
+    }
+    img {
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+      border-radius: 50%;
+    }
   }
   padding: 10px 20px;
 `;

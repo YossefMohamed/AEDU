@@ -50,6 +50,7 @@ const ChattingContainer = styled.div`
   display: flex;
   margin-left: 3rem;
   background-color: white;
+  box-sizing: border-box;
   #chatBoxSend {
     flex-grow: 1;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
@@ -72,18 +73,22 @@ const ChattingContainer = styled.div`
       outline: 0;
     }
   }
-  width: 100%;
+  width: 80%;
   .chat-people--container {
     overflow: auto;
-    padding: 1rem 0 1rem 1rem;
+    padding: 1rem 0 1rem 0rem;
     display: flex;
     flex-direction: column;
     .chat-item {
       min-height: 6.5rem;
       display: flex;
       align-items: center;
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       padding: 1rem;
+      &:hover {
+        background-color: ${colors.main};
+        color: white;
+      }
       img {
         width: 50px;
         height: 50px;

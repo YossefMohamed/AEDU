@@ -18,6 +18,7 @@ const ClassCard = () => {
 const ContainerCard = styled.div`
   height: 30rem;
   width: 100%;
+  cursor: pointer;
   .card {
     width: 100%;
     height: 100%;

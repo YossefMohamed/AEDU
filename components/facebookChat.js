@@ -1,38 +1,51 @@
-
 import styled from "styled-components";
 import colors from "../utils/colors";
 
-function Chat() {
+function FaceBookChat() {
   return (
     <ChattingContainer>
       <div className="chat_user-details">
-        <img src="/user1.png" />
         <div className="user_details">
           {" "}
-          <div className="user_name">Yossef Mohamed</div>
-          <div className="last-seen"> Today at 12:56</div>
+          <div className="user_name">Text Chatting</div>
         </div>
       </div>
       <div className="chat-content">
-        <div className="message from">Kid, where'd you come from? </div>
-        <div className="message to">Field trip! 🤣</div>
-        <div className="message to">
-          Uh, what is this guy's problem, Mr. from? 🤔
+        <div className="message from">
+          Kid, where'd you come from? <span>Yossef</span>
         </div>
-        <div className="message from">Kid, where'd you come from? </div>
-        <div className="message to">Field trip! 🤣</div>
         <div className="message to">
-          Uh, what is this guy's problem, Mr. from? 🤔
+          Field trip! 🤣<span>Mohamed</span>
+        </div>
+        <div className="message to">
+          Uh, what is this guy's problem, Mr. from? 🤔<span>Mohamed</span>
+        </div>
+        <div className="message from">
+          Kid, where'd you come from?<span>Yossef</span>
+        </div>
+        <div className="message to">
+          Field trip! 🤣<span>Mohamed</span>
+        </div>
+        <div className="message to">
+          Uh, what is this guy's problem, Mr. from? 🤔<span>Mohamed</span>
+        </div>
+        <div className="message from">
+          Kid, where'd you come from?<span>Yossef</span>{" "}
+        </div>
+        <div className="message to">
+          Field trip! 🤣<span>Mohamed</span>
+        </div>
+        <div className="message to">
+          Uh, what is this guy's problem, Mr. from? 🤔<span>Mohamed</span>
         </div>
         <div className="message from">
           Uh, he's from space, he came here to steal a necklace from a wizard.
+          <span>Yossef</span>
         </div>
       </div>
       <div className="input">
-        <i className="fas fa-camera"></i>
-        <i className="far fa-laugh-beam"></i>
         <input placeholder="Type your message here!" type="text" />
-        <i className="fas fa-microphone"></i>
+        <i class="fa fa-paper-plane" aria-hidden="true"></i>
       </div>
     </ChattingContainer>
   );
@@ -50,12 +63,10 @@ const ChattingContainer = styled.div`
   }
   .input {
 		box-sizing: border-box;
-		flex-basis: 4rem;
-		flex-shrink: 0;
 		display: flex;
         
         align-items: center;
-        flex: 1;
+        height: 8%;
 		padding: 0 0.5rem 0 1.5rem;
 		
 		i {
@@ -79,7 +90,7 @@ const ChattingContainer = styled.div`
 			background-color: white;
 			padding: 0.5rem 1rem;
 			margin-right: 1rem;
-			border-radius: 1.125rem;
+			border-radius: 0.5rem;
 			flex-grow: 2;
 			box-shadow: 
 				0 0 1rem rgba(black, 0.1),
@@ -99,16 +110,26 @@ const ChattingContainer = styled.div`
   .message {
     box-sizing: border-box;
 
-    padding: 0.5rem 1rem;
-    margin: 1rem;
+    padding: 0.5rem 1rem 0.5rem;
+    margin-top: 3rem!important;
+    margin-bottom: 1rem!important;
     background: #fff;
     border-radius: 1.125rem 1.125rem 1.125rem 0;
     min-height: 2.25rem;
     width: fit-content;
-    max-width: 66%;
-
+    max-width:63%;
+    position: relative;
     box-shadow: 0 0 2rem rgba(black, 0.075),
       0rem 1rem 1rem -1rem rgba(black, 0.1);
+      span{
+        position: absolute;
+        font-size: 1.4rem;
+        top: 0;
+        transform: translateY(-100%);
+        color: black;
+        left: 8px;
+      }
+     
   }
   .to {
     margin: 1rem 1rem 1rem auto;
@@ -116,28 +137,26 @@ const ChattingContainer = styled.div`
     background: ${colors.main};
     color: white;
   }
+  .from{
+    margin-left: 1rem;
+  }
+
   .chat-content {
-    overflow: auto;
-    height: 72%;
+    overflow: auto;flex:1;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.1);
   }
   .user_name {
     font-size: 1.7rem;
   }
-  border-radius: 5px;
-  width: 330px;
-  height: 450px;
+  width: 100%;
+  height: 100%;
   background-color: white;
-  position: fixed;
-  top: 100%;
-  left: 90%;
-  transform: translate(-100%, -100%);
   border: 1px solid rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   .chat_user-details {
-    height: 16%;
+    height: 8%;
     overflow: hidden;
     display: flex;
     padding: 2rem 1.5rem;
@@ -152,4 +171,4 @@ const ChattingContainer = styled.div`
     }
   }
 `;
-export default Chat;
+export default FaceBookChat;

@@ -137,6 +137,7 @@ const PostContainer = styled.div`
   }
   p .file-container {
     display: flex;
+    cursor: pointer;
     flex-direction: column;
     .file-row {
       display: flex;
